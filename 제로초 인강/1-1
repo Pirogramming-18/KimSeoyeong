@@ -1,1 +1,1 @@
-document.head.parentNode.removeChild(document.head);
+document.head.parentNode.removeChild(document.head); // 대부분의 css 없앰 
