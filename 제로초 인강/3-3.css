@@ -1,0 +1,77 @@
+*{
+    /*width를 content기준에서 border기준으로 계산하도록 바꿈*/
+    box-sizing: border-box;
+}
+
+/*Cascading 부모, 또는 조상의 css를 덮어 씌워지는/쓸 수 있는 속성 O */
+/*header-center에 적용된 css는 개발자 도구 - Styles 탭에서 확인 가능*/
+/*선택자 (selector)*/
+
+.blind{
+    position: absolute;
+    overflow: hidden;
+    clip:rect(0 0 0 0);
+    margin: -1px;
+    width:1px;
+    height: 1px;
+} 
+
+#header-center{
+    /*div태그는 생략할 수 있음*/
+    /*',' 사용해서 여러 태그에 동시에 적용할 수도 있음 */
+    margin: 0 auto;
+    width: 1080px;
+}
+
+
+#header-search a {
+    text-decoration: none;
+}
+
+/*자식선택*/
+#header-search h1 {
+    width: 198px;
+    height: 48px;
+    display: inline-block;
+    /* background-image: url(./sp_search.png);
+    background-position: -4px -4px; */
+    /*네이버 글자 숨기기*/
+    /* text-indent: 100%; /*글자 들여쓰기*/
+    /* overflow: hidden; */
+    /* background-repeat: no-repeat; */
+    background:url(./sp_search.png) -4px -4px no-repeat;
+    vertical-align: middle;
+
+}
+
+#header-search h1 span{
+    display:none;
+}
+
+/*자손선택
+#header-search h1{
+    자손선택자
+}
+*/
+
+#header-search fieldset{
+    margin-left: 20px;
+    /* padding-top: 12px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 0; */
+    padding: 12px 0 12px 10px;
+    width: 521px;
+    height: 49px;
+    display: inline-block;
+    border: 2px solid #03cf5d; /*color -> hex표기법*/
+    vertical-align: middle;
+
+}
+
+#header-search fieldset input {
+    border: none;
+    padding: 0;
+    outline: none;
+    vertical-align: middle;
+}
