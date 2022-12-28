@@ -213,9 +213,8 @@ nav li:nth-child(6) span:first-child{
 }
 
 #search-ranking {
-    position: absolute;
-    top:16px;
-    right:100px;
+    float:right;
+    margin-top:16px;
 }
 
 #rank-number {
