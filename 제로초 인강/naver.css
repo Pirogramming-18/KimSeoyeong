@@ -8,3 +8,21 @@
     margin: 0 auto;
     width: 1080px;
 }
+
+/*자식선택*/
+#header-search > h1 {
+    width: 280px;
+    display: inline-block;
+}
+
+/*자손선택
+#header-search h1{
+    자손선택자
+}
+*/
+
+#header-search fieldset{
+    width: 52px;
+    display: inline-block;
+}
+
