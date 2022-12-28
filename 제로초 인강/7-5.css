@@ -362,6 +362,40 @@ main{
     margin-bottom: 8px;
 }
 
+#main-login .login-wrapper{
+    padding:15px 25px;
+}
+
+#main-login .login-text{
+    color:#888;
+    font-size:12px;
+    line-height: 14px;
+}
+
+#main-login .login-wrapper a{
+    display: block;
+}
+
+#main-login .login-image {
+    margin-top:12px;
+    background:url(./sp_login.png) 0 -47px no-repeat;
+    display: inline-block;
+    width: 280px;
+    height: 37px;
+}
+
+#main-login .login-signup{
+    float:right;
+    font-size:12px;
+    line-height: 38px;
+    color:#666;
+    text-decoration: none;
+}
+
+#main-login .login-signup:hover{
+    text-decoration: underline;
+}
+
 #main-second-block{
     display: inline-block;
     vertical-align: top;
