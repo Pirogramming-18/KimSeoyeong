@@ -1,0 +1,35 @@
+*{
+    /*width를 content기준에서 border기준으로 계산하도록 바꿈*/
+    box-sizing: border-box;
+}
+
+html, body{
+    margin:0;
+    padding:0;
+    font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin:0;
+}
+
+.blind{
+    position: absolute;
+    overflow: hidden;
+    clip:rect(0 0 0 0);
+    margin: -1px;
+    width:1px;
+    height: 1px;
+} 
+
+.box{
+    margin: 0 10px; 
+    font-size: 24px;
+    background-color: white;
+    padding: 36px;
+    border-radius: 40px;
+}
+.box span{
+    display: block;
+    font-size: 30px;
+}
