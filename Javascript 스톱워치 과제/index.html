@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5658349e28.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="stopwatch" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="title fs-2 fw-bold d-flex justify-content-center align-items-center mb-3">
+            <i class="fa-solid fa-stopwatch me-3"></i>
+            <span class="mt-1">피로그래밍 스톱워치</span>
+        </div>
+        <div class="main fw-bold d-flex justify-content-center align-items-center">
+            <div id="box">
+                <div id="box-time" class="fs-3 d-flex justify-content-center align-items-center bg-white m-3" >
+                    <span id="second">00</span>
+                    <span>:</span>
+                    <span id="milliSecond">00</span>
+                </div>
+                <div id="box-control" class="mt-3 d-flex justify-content-center align-content-center">
+                    <button type="button" id="startBtn" class="ctrl-start me-2">start</button>
+                    <button type="button" id="stopBtn" class="ctrl-stop me-2">stop</button>
+                    <button type="button" id="resetBtn" class="ctrl-reset">reset</button>
+                </div>
+            </div>
+        </div>
+        <div class="record mt-4">
+            <div>
+                <div id="record-bar" class="d-flex justify-content-evenly align-items-center">
+                    <input type="checkbox" class="check-all">
+                    <span class="text-white">구간 기록</span>
+                    <button id="deleteBtn" class="bg-transparent border-0 text-white">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            <ul id="recordField" class="d-flex flex-column p-1">
+            </ul>
+        </div>
+        <div class="record">
+
+        </div>
+    </section>
+    <script src="script.js?ver=1"></script>
+</html>
+
+<style>
+    @font-face {
+    font-family: 'PFStardust';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/PFStardust.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+section{
+    height:100vh;
+}
+#stopwatch {
+    font-family: 'PFStardust';
+}
+
+.main{
+    width:270px;
+    height: 170px;
+    background-color:rgb(116, 63, 71);
+    border-radius: 10%;
+}
+
+#box-time{
+    border-radius: 5%;
+    width:200px;
+    height: 50px;
+}
+#box-control button{
+    height: 45px;
+    border: 0;
+    border-radius: 20%;
+}
+#record-bar {
+    width:300px;
+    height:35px;
+    background-color:rgb(116, 63, 71);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+#recordField li{
+    list-style: none;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+}
+
+.check{
+    margin-right:100px;
+}
+</style>
