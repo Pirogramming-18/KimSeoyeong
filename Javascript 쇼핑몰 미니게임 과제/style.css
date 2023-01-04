@@ -8,94 +8,99 @@
   --color-light-grey: #dfdfdf;
 
   /* size */
-  --size-button:60px;
-  --font-size:18px;
   --base-space:8px;
+  --size-button: 60px;
   --size-border:4px;
-  --size-thumbnail:50px;
-  
-  /* animation */
-  --animation-duration:300ms;
+  --size-thumbnail: 50px;
+  --font-size:18px;
+
+  /*annimation*/
+  --animation-duration: 300ms;
+
 }
 
 body{
-  height:100vh;
+  height: 100vh;
   background-color: var(--color-black);
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .logo{
-  cursor:pointer;
+  cursor: pointer;
   transition:transform var(--animation-duration) ease;
 }
+
 
 .btn{
   background-color: transparent;
-  border:none;
-  outline:none;
-  cursor:pointer;
+  border: none;
+  outline: none;
+  cursor: pointer;
   transition:transform var(--animation-duration) ease;
   margin-right: var(--base-space);
+  padding-bottom: 5px;
 }
-
 .btn:hover,
 .logo:hover{
   transform: scale(1.1);
 }
 
 .buttons{
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
 }
 
 .imgBtn{
-  width:var(--size-button);
-  height:var(--size-button);
+  width: var(--size-button);
+  height: var(var(--size-button));
 }
 
 .colorBtn{
-  font-size:var(--font-size);
-  padding:calc(var(--base-space)*2);
-  border-radius:var(--size-border);
+  font-size: var(font-size);
+  padding: calc(var(--base-space)*2);
+  border-radius: var(--size-border);
 }
 
-.blue{
+
+.blue {
   background-color: var(--color-blue);
 }
+
 
 .yellow{
   background-color: var(--color-yellow);
 }
 
-.pink{
+
+.pink {
   background-color: var(--color-pink);
 }
 
 .items{
-  width:60%;
+  width: 60%;
   height: 60%;
   list-style: none;
-  padding-left:0;
-  overflow-y:scroll;
+  padding-left: 0;
+  overflow-y: scroll;
 }
 
 .item{
-  background-color: white;
-  display:flex;
+  background-color: var(--color-white);
+  display: flex;
   align-items: center;
-  padding:var(--base-space);
-  margin-bottom: var(--base-space);
+  padding: var(--base-space);
+  margin-bottom:var(--base-space) ;
 }
 
-.item__thumbnail{
-  width:var(--size-thumbnail);
-  height:var(--size-thumbnail);
+.item_thumbnail{
+  width: var(--size-thumbnail);
+  height: var(--size-thumbnail);
 }
 
-.item__description{
-  margin-left:var(--base-space);
-  font-size:var(--font-size);
+.item_description{
+  margin-left: var(--base-space);
+  font-size: var(font-size);
 }
