@@ -25,5 +25,3 @@ while num<31:
             break
 
     player = not player
-
-#주프로그램부
