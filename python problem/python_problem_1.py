@@ -1,7 +1,7 @@
 num=0
 player = True
 
-while num<=31:
+while num<31:
     while True:
         try:
             cnt=int(input('부를 숫자의 개수를 입력하세요(1,2,3만 입력 가능): '))
@@ -14,7 +14,6 @@ while num<=31:
         else:
             break
     
-    
     for i in range(cnt):
         num+=1
         if player==True:
@@ -22,4 +21,9 @@ while num<=31:
         elif player==False:
             print('playerB: {0}'.format(num))
 
+        if num==31:
+            break
+
     player = not player
+
+#주프로그램부
