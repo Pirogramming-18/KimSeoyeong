@@ -22,6 +22,10 @@ while num<31:
             print('playerB: {0}'.format(num))
 
         if num==31:
+            if player==True:
+                print('playerB win!')
+            elif player==False:
+                print('playerA win!')
             break
 
     player = not player
