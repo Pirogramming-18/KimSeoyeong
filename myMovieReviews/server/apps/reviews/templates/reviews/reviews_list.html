@@ -11,6 +11,18 @@
         <div>
             <h1><a href="/reviews/create">리뷰 작성</a></h1>
         </div>
+        <!-- 백엔드 챌린지 정렬 -->
+        <form method="GET">
+        <div>
+            <select name="sort" id="sort">
+                <option value="가나다순">가나다순</option>
+                <option value="별점높은순">별점높은순</option>
+                <option value="상영시간순">상영시간순</option>
+                <option value="최신순" selected>최신순</option>
+            </select>
+            <input type="submit" value="정렬">
+        </div>
+        </form>
     </header>
     
     {% for review in reviews %}

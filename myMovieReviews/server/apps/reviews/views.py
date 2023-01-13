@@ -4,7 +4,18 @@ from server.apps.reviews.models import Review
 # Create your views here.
 def reviews_list(request, *args, **kwargs):
     reviews=Review.objects.all()
-    return render(request, "reviews/reviews_list.html",{"reviews":reviews})
+    # 백엔드 챌린지 정렬
+    sort=request.GET.get('sort','가나다순')
+    if sort == '가나다순':
+        reviews=Review.objects.order_by("title")
+    elif sort == '별점높은순':
+        reviews=Review.objects.order_by("-starRating")
+    elif sort == '상영시간순':
+        reviews=Review.objects.order_by("-runningTime")
+    elif sort=='최신순':
+        reviews=Review.objects.order_by("-releaseYear")
+
+    return render(request, "reviews/reviews_list.html",{"reviews":reviews, "sort":sort})
 
 def reviews_detail(request, pk, *args,**kwargs):
     review = Review.objects.all().get(id=pk)
