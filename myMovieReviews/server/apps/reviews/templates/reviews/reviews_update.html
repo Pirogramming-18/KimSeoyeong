@@ -1,0 +1,32 @@
+<h1>리뷰 수정</h1>
+
+<form action="/reviews/{{ review.id }}/update" method="post">
+    {% csrf_token %}
+    <div>
+        제목: <input name="title" value="{{ review.title }}">
+    </div>
+    <div>
+        개봉년도: <input name="releaseYear" value="{{ review.releaseYear }}">
+    </div>
+    <div>
+        감독: <input name="director" value="{{ review.director }}">
+    </div>
+    <div>
+        주연: <input name="mainActor" value="{{ review.mainActor }}">
+    </div>
+    <div>
+        장르: <input name="genre" value="{{ review.genre }}">
+    </div>
+    <div>
+        별점: <input name="starRating" value="{{ review.starRating }}">
+    </div>
+    <div>
+        시간: <input name="runningTime" value="{{ review.runningTime }}">
+    </div>
+    <div>
+        리뷰: <textarea name="reviewContent">{{ review.reviewContent }}</textarea>
+    </div>
+    <div>
+        <input type="submit" value="저장">
+    </div>
+</form>
