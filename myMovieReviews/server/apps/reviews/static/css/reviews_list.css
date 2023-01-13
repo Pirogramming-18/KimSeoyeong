@@ -1,0 +1,92 @@
+@font-face{
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+  }
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+body{
+    background-color:lightgrey;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+
+}
+
+a{
+    font-family:'bitbit';
+    color:black;
+    text-decoration: none;
+}
+
+a span{
+    color:deeppink;
+}
+
+hr {
+    border: 1px solid grey;
+    border-radius:2px;
+}
+
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-list{
+    font-family: 'Pretendard-Regular';
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    border-radius: 10px;
+    width: 80%;
+    height: auto;
+    padding: 30px;
+    margin-top:15px;
+}
+
+.main-list .list-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-list .list-text .list-each{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding:20px 30px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.main-list .list-text .list-each small{
+    margin:5px;
+}
+
+.main-list .list-text .list-each .list-text-title{
+    margin-right: 20px;
+}
+
+.main-list .list-form{
+    font-family: 'Pretendard-Regular';
+    display: flex;
+}
+.main-list .list-form input{
+    font-family: 'Pretendard-Regular';
+}
+
+.main-list .list-form select{
+    font-family: 'Pretendard-Regular';
+
+}

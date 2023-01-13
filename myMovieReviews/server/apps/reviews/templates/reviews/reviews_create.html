@@ -1,38 +1,69 @@
-<h1>리뷰 작성</h1>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/reviews_create.css" />
+    <title>myMovieReviews</title>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <a href="/" class="header-logo">
+                📖 my<span>Movie</span>Reviews
+            </a>
+        </div>
+        <div>
+            <a href="/reviews/create" class="header-create">Add a New review</a>
+        </div>
+    </header>
 
-<form action="/reviews/create", method="post">
-    {% csrf_token %}
-    <div>
-        제목: <input name="title" />
+    <hr />
+    <div class="create">
+        <div class="main-create">
+            <div class="main-create-title">
+                <span>Movie</span>Review🍿
+            </div>
+
+            <form action="/reviews/create", method="post">
+                {% csrf_token %}
+                <div>
+                    제목: <input name="title" />
+                </div>
+                <div>
+                    개봉: <input type="number" name="releaseYear" />
+                </div>
+                <div>
+                    감독: <input name="director" />
+                </div>
+                <div>
+                    주연: <input name="mainActor" />
+                </div>
+                <div>
+                    장르:
+                    <!-- 백엔드 챌린지 장르 선택-->
+                    <select name="genre">
+                        {% for t1, t2 in review.GENRES %}
+                        <option>{{ t2 }}</option>
+                        {% endfor %}
+                    </select>
+                </div> 
+                <div>
+                    별점: <input type="number" step="0.5" name="starRating" />
+                </div>
+                <div>
+                    시간: <input type="number" name="runningTime" />
+                </div>
+                <div>
+                    리뷰: <textarea name="reviewContent"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="저장" />
+                </div>
+            </form>
+        </div>
     </div>
-    <div>
-        개봉년도: <input type="number" name="releaseYear" />
-    </div>
-    <div>
-        감독: <input name="director" />
-    </div>
-    <div>
-        주연: <input name="mainActor" />
-    </div>
-    <div>
-        장르:
-        <!-- 백엔드 챌린지 장르 선택-->
-        <select name="genre">
-            {% for t1, t2 in review.GENRES %}
-            <option>{{ t2 }}</option>
-            {% endfor %}
-        </select>
-    </div> 
-    <div>
-        별점: <input type="number" step="0.5" name="starRating" />
-    </div>
-    <div>
-        시간: <input type="number" name="runningTime" />
-    </div>
-    <div>
-        리뷰: <textarea name="reviewContent"></textarea>
-    </div>
-    <div>
-        <input type="submit" value="저장" />
-    </div>
-</form>
+</body>
+</html>

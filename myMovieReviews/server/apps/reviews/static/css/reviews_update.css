@@ -1,0 +1,88 @@
+@font-face{
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+  }
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    background-color:lightgrey;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+
+}
+
+a{
+    font-family:'bitbit';
+    color:black;
+    text-decoration: none;
+}
+
+a span{
+    color:deeppink;
+}
+
+hr {
+    border: 1px solid grey;
+    border-radius:2px;
+}
+
+.create {
+    display: flex;
+    justify-content: center;
+}
+.main-create{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    width: 400px;
+    padding: 10px;
+    margin:10px;
+}
+
+.main-create .main-create-title{
+    font-family:'bitbit';
+    margin: 5px;
+    font-size: 20px;
+}
+
+.main-create form {
+    font-family: 'Pretendard-Regular';
+}
+
+.main-create select{
+    font-family: 'Pretendard-Regular';
+    border:1px solid lightslategray;
+    border-radius: 3px;
+    margin-top:10px;
+}
+.main-create form textarea {
+    font-family: 'Pretendard-Regular';
+    width: 300px;
+    height: 100px;
+    border: 1px solid lightslategray;
+    border-radius: 3px;
+    padding: 5px;
+    margin-top:5px;
+  }
+  
+.main-create form div input {
+font-family: 'Pretendard-Regular';
+background-color:white;
+border: 1px solid lightslategray;
+border-radius: 3px;
+margin-top: 10px;
+padding: 5px 10px;
+}

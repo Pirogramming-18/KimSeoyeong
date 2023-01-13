@@ -1,30 +1,50 @@
-<header>
-    <a href="/">myMovieReviews</a>
-</header>
-
-<h1>{{ review.title }}</h1>
-<small>개봉년도 | {{ review.releaseYear }}</small>
-<br />
-<small>감독 | {{ review.director }}</small>
-<br />
-<small>주연 | {{ review.mainActor }}</small>
-<br />
-<small>장르 | {{ review.genre }}</small>
-<br />
-<small>별점 | {{ review.starRating }}</small>
-<br />
-<!-- 백엔드 챌린지 러닝타임 단위 변환 -->
-<small>시간 | {{ hour }}시간 {{ minute }}분</small>
-<br />
-<br />
-<small>리뷰 | {{ review.reviewContent }}</small>
-
-<form action="/reviews/{{ review.id }}/update" method = "post ">
-    {% csrf_token %}
-    <input type="submit" value="수정">
-</form>
-
-<form action="/reviews/{{ review.id }}/delete" method="post">
-    {% csrf_token %}
-    <input type="submit" value="삭제">
-</form>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/reviews_detail.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <a href="/" class="header-logo">
+                📖 my<span>Movie</span>Reviews
+            </a>
+        </div>
+        <div>
+            <a href="/reviews/create" class="header-create">Add a New review</a>
+        </div>
+    </header>
+    <hr />
+    <div class="detail">
+        <div class="main-detail">
+            <div class="detail-text">
+                <h2>{{ review.title }}</h2>
+                <small>개봉년도 | {{ review.releaseYear }}</small>
+                <small>감독 | {{ review.director }}</small>
+                <small>주연 | {{ review.mainActor }}</small>
+                <small>장르 | {{ review.genre }}</small>
+                <small>별점 | {{ review.starRating }}</small>
+                <!-- 백엔드 챌린지 러닝타임 단위 변환 -->
+                <small>시간 | {{ hour }}시간 {{ minute }}분</small>
+                <small>리뷰 | {{ review.reviewContent }}</small>
+            </div>
+            <div class="detail-form">
+                <form action="/reviews/{{ review.id }}/update" method = "post ">
+                    {% csrf_token %}
+                    <input type="submit" value="수정">
+                </form>
+    
+                <form action="/reviews/{{ review.id }}/delete" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="삭제">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

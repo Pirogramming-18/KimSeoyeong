@@ -4,32 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/reviews_list.css">
     <title>myMovieReviews</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div>
-            <h1><a href="/reviews/create">리뷰 작성</a></h1>
+            <a href="/" class="header-logo">
+                📖 my<span>Movie</span>Reviews
+            </a>
         </div>
-        <!-- 백엔드 챌린지 정렬 -->
-        <form method="GET">
         <div>
-            <select name="sort" id="sort">
-                <option value="가나다순">가나다순</option>
-                <option value="별점높은순">별점높은순</option>
-                <option value="상영시간순">상영시간순</option>
-                <option value="최신개봉순" selected>최신개봉순</option>
-            </select>
-            <input type="submit" value="정렬">
+            <a href="/reviews/create" class="header-create">Add a New review</a>
         </div>
-        </form>
     </header>
-    
-    {% for review in reviews %}
-    <p><a href="/reviews/{{ review.pk }}">{{ review.title }}</a></p>
-    <small>{{ review.releaseYear }}</small>
-    <small>{{ review.genre }}</small>
-    <small>{{ review.starRating }}</small>
-    {% endfor %}
+    <hr />
+    <div class="list">
+        <div class="main-list">
+            <div class="list-text">
+                {% for review in reviews %}
+                <div class="list-each">
+                    <div class="list-text-title">
+                        <a href="/reviews/{{ review.pk }}">{{ review.title }}</a>
+                    </div>
+                    <small>개봉 {{ review.releaseYear }} | </small>
+                    <small> 장르 {{ review.genre }} | </small>
+                    <small> 별점 {{ review.starRating }}</small>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- 백엔드 챌린지 정렬 -->
+            <div class="list-form">
+                <form method="GET">
+                    <div>
+                        <select name="sort" id="sort">
+                            <option value="가나다순">가나다순</option>
+                            <option value="별점높은순">별점높은순</option>
+                            <option value="상영시간순">상영시간순</option>
+                            <option value="최신개봉순" selected>최신개봉순</option>
+                        </select>
+                        <input type="submit" value="정렬">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
