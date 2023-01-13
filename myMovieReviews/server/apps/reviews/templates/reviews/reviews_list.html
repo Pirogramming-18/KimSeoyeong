@@ -7,8 +7,10 @@
     <title>myMovieReviews</title>
 </head>
 <body>
+    <div>
+        <h1><a href="/reviews/create">리뷰 작성</a></h1>
+    </div>
     {% for review in reviews %}
-
     <p><a href="/reviews/{{ review.pk }}">{{ review.title }}</a></p>
     <small>{{ review.releaseYear }}</small>
     <small>{{ review.genre }}</small>
