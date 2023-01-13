@@ -12,7 +12,7 @@ def reviews_list(request, *args, **kwargs):
         reviews=Review.objects.order_by("-starRating")
     elif sort == '상영시간순':
         reviews=Review.objects.order_by("-runningTime")
-    elif sort=='최신순':
+    elif sort=='최신개봉순':
         reviews=Review.objects.order_by("-releaseYear")
 
     return render(request, "reviews/reviews_list.html",{"reviews":reviews, "sort":sort})
