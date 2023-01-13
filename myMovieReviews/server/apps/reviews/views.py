@@ -5,3 +5,7 @@ from server.apps.reviews.models import Review
 def reviews_list(request, *args, **kwargs):
     reviews=Review.objects.all()
     return render(request, "reviews/reviews_list.html",{"reviews":reviews})
+
+def reviews_detail(request, pk, *args,**kwargs):
+    review = Review.objects.all().get(id=pk)
+    return render(request, "reviews/reviews_detail.html",{"review":review})

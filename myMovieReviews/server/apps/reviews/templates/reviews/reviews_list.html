@@ -8,7 +8,8 @@
 </head>
 <body>
     {% for review in reviews %}
-    <p>{{ review.title }}</p>
+
+    <p><a href="/reviews/{{ review.pk }}">{{ review.title }}</a></p>
     <small>{{ review.releaseYear }}</small>
     <small>{{ review.genre }}</small>
     <small>{{ review.starRating }}</small>
