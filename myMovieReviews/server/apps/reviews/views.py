@@ -19,7 +19,10 @@ def reviews_list(request, *args, **kwargs):
 
 def reviews_detail(request, pk, *args,**kwargs):
     review = Review.objects.all().get(id=pk)
-    return render(request, "reviews/reviews_detail.html",{"review":review})
+    # 백엔드 챌린지 러닝타임 단위 변환
+    hour = review.runningTime // 60
+    minute = review.runningTime % 60
+    return render(request, "reviews/reviews_detail.html",{"review":review, "hour":hour, "minute":minute})
 
 def reviews_create(request, *args, **kwargs):
     review=Review
