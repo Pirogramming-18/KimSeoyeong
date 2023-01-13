@@ -25,3 +25,9 @@ def reviews_create(request, *args, **kwargs):
         # 리뷰 리스트 페이지로 이동하도록
         return redirect('/')
     return render(request, "reviews/reviews_create.html")
+
+def reviews_delete(request, pk, *args, **kwargs):
+    if request.method=="POST":
+        review=Review.objects.all().get(id=pk)
+        review.delete()
+    return redirect("/")
