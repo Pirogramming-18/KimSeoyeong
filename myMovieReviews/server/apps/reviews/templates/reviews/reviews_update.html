@@ -15,7 +15,13 @@
         주연: <input name="mainActor" value="{{ review.mainActor }}" />
     </div>
     <div>
-        장르: <input name="genre" value="{{ review.genre }}" />
+        장르: 
+        <!-- 백엔드 챌린지 장르 선택-->
+        <select name="genre">
+            {% for t1,t2 in review.GENRES %}
+            <option>{{ t2 }}</option>
+            {% endfor %}
+        </select>
     </div>
     <div>
         별점: <input type="number" step="0.5" name="starRating" value="{{ review.starRating }}" />

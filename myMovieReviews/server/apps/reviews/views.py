@@ -11,6 +11,7 @@ def reviews_detail(request, pk, *args,**kwargs):
     return render(request, "reviews/reviews_detail.html",{"review":review})
 
 def reviews_create(request, *args, **kwargs):
+    review=Review
     if request.method =="POST":
         Review.objects.create(
             title=request.POST["title"],
@@ -24,7 +25,7 @@ def reviews_create(request, *args, **kwargs):
         )
         # 리뷰 리스트 페이지로 이동하도록
         return redirect('/')
-    return render(request, "reviews/reviews_create.html")
+    return render(request, "reviews/reviews_create.html",{"review":review})
 
 def reviews_update(request, pk, *args, **kwargs):
     review = Review.objects.get(id=pk)
