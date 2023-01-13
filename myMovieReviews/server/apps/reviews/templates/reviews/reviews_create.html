@@ -3,30 +3,30 @@
 <form action="/reviews/create", method="post">
     {% csrf_token %}
     <div>
-        제목: <input name="title">
+        제목: <input name="title" />
     </div>
     <div>
-        개봉년도: <input name="releaseYear">
+        개봉년도: <input type="number" name="releaseYear" />
     </div>
     <div>
-        감독: <input name="director">
+        감독: <input name="director" />
     </div>
     <div>
-        주연: <input name="mainActor">
+        주연: <input name="mainActor" />
     </div>
     <div>
-        장르: <input name="genre">
+        장르: <input name="genre" />
     </div>
     <div>
-        별점: <input name="starRating">
+        별점: <input type="number" step="0.5" name="starRating" />
     </div>
     <div>
-        시간: <input name="runningTime">
+        시간: <input type="number" name="runningTime" />
     </div>
     <div>
         리뷰: <textarea name="reviewContent"></textarea>
     </div>
     <div>
-        <input type="submit" value="저장">
+        <input type="submit" value="저장" />
     </div>
 </form>

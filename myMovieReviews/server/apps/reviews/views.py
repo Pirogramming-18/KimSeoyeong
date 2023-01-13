@@ -28,17 +28,16 @@ def reviews_create(request, *args, **kwargs):
 
 def reviews_update(request, pk, *args, **kwargs):
     review = Review.objects.get(id=pk)
-    if request.method =="POST":
-        review.title=request.POST["title"],
-        review.releaseYear=request.POST["releaseYear"],
-        review.director=request.POST["director"],
-        review.mainActor=request.POST["mainActor"],
-        review.genre=request.POST["genre"],
-        review.starRating=request.POST["starRating"],
-        review.runningTime=request.POST["runningTime"],
-        review.reviewContent=request.POST["reviewContent"],
+    if request.method=="POST":
+        review.title=request.POST["title"]
+        review.releaseYear=request.POST["releaseYear"]
+        review.genre=request.POST["genre"]
+        review.starRating=request.POST["starRating"]
+        review.runningTime=request.POST["runningTime"]
+        review.reviewContent=request.POST["reviewContent"]
+        review.director=request.POST["director"]
+        review.mainActor=request.POST["mainActor"]
         review.save()
-        # 리뷰 디테일 페이지로 이동하도록
         return redirect(f"/reviews/{review.id}")
     return render(request, "reviews/reviews_update.html", {"review":review})
 

@@ -13,6 +13,12 @@
 <br />
 <br />
 <small>리뷰 | {{ review.reviewContent }}</small>
+
+<form action="/reviews/{{ review.id }}/update" method = "post ">
+    {% csrf_token %}
+    <input type="submit" value="수정">
+</form>
+
 <form action="/reviews/{{ review.id }}/delete" method="post">
     {% csrf_token %}
     <input type="submit" value="삭제">
