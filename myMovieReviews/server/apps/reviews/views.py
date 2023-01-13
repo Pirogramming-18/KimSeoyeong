@@ -5,7 +5,7 @@ from server.apps.reviews.models import Review
 def reviews_list(request, *args, **kwargs):
     reviews=Review.objects.all()
     # 백엔드 챌린지 정렬
-    sort=request.GET.get('sort','최신순')
+    sort=request.GET.get('sort','최신개봉순')
     if sort == '가나다순':
         reviews=Review.objects.order_by("title")
     elif sort == '별점높은순':
