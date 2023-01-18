@@ -1,0 +1,22 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+<div class="tool-create-header">
+    <h2>Devtool Register</h2>
+    <h6>개발툴 등록 페이지 입니다. 자신이 다룰 수 있는 개발툴을 등록해 보세요!</h6>
+</div>
+<div class="tool-create-form">
+    <form action="{% url 'posts:tool-create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>이름:
+            <br /><input name="name" /></p>
+        <p>종류:
+            <br /><input name="kind" /></p>
+        <p>개발툴 설명:
+            <br /><textarea name="content"></textarea></p>
+        <div>
+            <input type="submit" value="SUBMIT" />
+        </div>
+    </form>
+</div>
+{% endblock %}

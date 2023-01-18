@@ -1,0 +1,33 @@
+
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    <div class="post-create-header">
+        <h2>Idea Register</h2>
+        <h6>아이디어 등록 페이지 입니다. 당신의 아이디어를 잊지 말고 기록하세요!!</h6>
+    </div>
+    <div class="post-create-form">
+        <form action="{% url 'posts:idea-create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>아이디어명:
+                <br /><input name="title" /></p>
+            <p>Image:
+                <br /><input type="file" name="image" /></p>
+            <p>아이디어 설명:
+                <br /><textarea name="content"></textarea>
+            <p>아이디어 관심도:
+                <br /><input type="number" name="interest" /></p>
+            <p>
+                예상 개발툴:
+                <select name="devtool">
+                    {% for tool in tools %}
+                        <option value="{{tool.id}}">{{tool.name}}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <div>
+                <input type="submit" value="SUBMIT" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

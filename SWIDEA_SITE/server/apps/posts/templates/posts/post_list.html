@@ -1,0 +1,26 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    <div class="post-list-header">
+        <h2>Idea List</h2>
+        <h6>나의 아이디어를 잊지 말고 기록해 보세요</h6>
+    </div>
+    <div class="post-list-ideas">
+    {% for post in posts %}
+        <article>
+            {% if post.image %}
+                <p>
+                    <img src="{{ post.image.url }}" style="width: 150px; height: 200px">
+                </p>
+            {% endif %}
+            <div class="list-ideas-info">
+                <p><a href="{% url 'posts:idea-detail' post.pk %}">{{post.title}}</a></p>
+                <hr />
+                <p>예상 개발툴:{{post.devtool.name}}</p>
+                <p>아이디어 관심도:{{post.interest}}</p>
+            </div>
+        </article>
+        <hr />
+    {% endfor %}
+    </div>
+{% endblock %}

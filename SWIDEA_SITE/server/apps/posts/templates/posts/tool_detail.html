@@ -1,0 +1,40 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    <div class="devtool-detail-header">
+        <h2>Devtool Detail</h2>
+        <h6>개별툴 세부내용 페이지 입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을 확인해 보아요!</h6>
+    </div>
+    <div class="devtool-detail-tools">
+        <article>
+            <div class="detail-tools-info">
+                <h2><a href="">{{tool.name}}</a></h2>
+                <p>{{tool.kind}}</p>
+                <p>{{tool.content}}</p>
+                <hr />
+                <p>만들 수 있는 SW 목록</p>
+                {% for post in all_post %}
+                    <a href="{% url 'posts:idea-detail' post.pk %}"> {{post.title}} </a>
+                {% endfor %}
+            </div>
+        </article>
+        <hr />
+    </div>
+    <div class="devtool-detail-btns">
+        <form action="{% url 'posts:tool-delete' tool.pk %}">
+            <div>
+                <input type="submit" value="삭제" />
+            </div>
+        </form>
+        <form action="{% url 'posts:tool-list' %}">
+            <div>
+                <input type="submit" value="목록" />
+            </div>
+        </form>
+        <form action="{% url 'posts:tool-update' tool.pk %}">
+            <div>
+                <input type="submit" value="수정" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

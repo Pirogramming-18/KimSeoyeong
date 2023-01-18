@@ -1,0 +1,47 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    <div class="post-create-header">
+        <h2>Idea Detail</h2>
+        <h6>아이디어 세부내용 페이지 입니다. 당신이 구현하려 한 아이디어들을 자세히 살펴보세요!</h6>
+    </div>
+    <div class="post-detail-ideas">
+        <article>
+            {% if post.image %}
+                <p>
+                    <img src="{{ post.image.url }}" style="width: 200px; height: 250px">
+                </p>
+            {% endif %}
+            <div class="post-ideas-info">
+                <h3>{{post.title}}</h3>
+                <p>1) 아이디어 관심도
+                    <br />{{post.interest}}</p>
+                <p>2) 예상 개발툴
+                    <br />
+                    <a href="{% url 'posts:tool-detail' post.devtool_id %}">
+                        {{post.devtool.name}}
+                    </a>
+                </p>
+                <p>3)아이디어 설명
+                    <br />{{post.content}}</p>
+            </div>
+        </article>
+    </div>
+    <div class="post-detail-btns">
+        <form action="{% url 'posts:idea-delete' post.pk %}">
+            <div>
+                <input type="submit" value="삭제" />
+            </div>
+        </form>
+        <form action="{% url 'posts:idea-list' %}">
+            <div>
+                <input type="submit" value="목록" />
+            </div>
+        </form>
+        <form action="{% url 'posts:idea-update' post.pk %}">
+            <div>
+                <input type="submit" value="수정" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    <div class="idea-update-header">
+        <h2>Idea Datail Update</h2>
+        <h6>아이디어 세부내용 수정 페이지 입니다. 아이디어를 구체화하거나 내용을 변경해 보아요!</h6>
+    </div>
+    <div class="post-update-form">
+        <form action="{% url 'posts:idea-update' post.pk %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>아이디어명:
+                <br /><input name="title" value="{{post.title}}"/></p>
+            <p>Image:
+                <br /><input type="file" name="image" value="{{post.Image}}"/></p>
+            <p>아이디어 설명:
+                <br /><textarea name="content">{{post.content}}</textarea>
+            <p>아이디어 관심도:
+                <br /><input type="number" name="interest" value="{{post.interest}}"/></p>
+            <p>예상 개발툴:
+                <br />
+                <select name="devtool" >
+                    {% for tool in tools %} 
+                        {% if post.devtool.name != tool.name %}
+                            <option value="{{tool.id}}">{{tool.name}}</option>
+                        {% else %}
+                            <option value="{{tool.id}}" selected="selected">{{tool.name}}</option>
+                        {% endif %} 
+                    {% endfor %}
+                </select>
+            </p>
+            <div>
+                <input type="submit" value="SUBMIT" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

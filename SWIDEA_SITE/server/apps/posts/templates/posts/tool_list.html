@@ -1,0 +1,20 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    <div class="tool-list-header">
+        <h2>Devtool List</h2>
+        <h6>개발툴 목록 페이지 입니다. 자신이 사용가능한 개발툴의 목록을 확인해 보세요!</h6>
+    </div>
+    <div class="tool-list-tools">
+    {% for tool in tools %}
+        <article>
+            <div class="list-tools-info">
+                <p><a href="{% url 'posts:tool-detail' tool.id %}">{{tool.name}}</a></p>
+                <small>{{tool.kind}}</small>
+                <small>{{tool.content}}</small>
+            </div>
+        </article>
+        <hr />
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    <div class="devtool-update-header">
+        <h2>Devtool Datail Update</h2>
+        <h6>개별툴 세부내용 수정 페이지 입니다. 개별툴에 대해 수정사항이 있으면 고쳐보아요!</h6>
+    </div>
+    <div class="devtool-update-form">
+        <form action="{% url 'posts:tool-update' tool.pk %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>이름:
+                <br /><input name="name" value="{{tool.name}}"/></p>
+            <p>종류:
+                <br /><input name="kind" value="{{tool.kind}}"/></p>
+            <p>개발툴 설명:
+                <br /><textarea name="content">{{tool.content}}</textarea>
+            <div>
+                <input type="submit" value="SUBMIT" />
+            </div>
+        </form>
+    </div>
+{% endblock %}
