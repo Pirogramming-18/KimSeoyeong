@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.new__post {
+    text-align: center;
+}
+
+.new__post__input {
+    border:0 solid black;
+    background-color: pink;
+    padding: 10px;
+}
+
+.post__area{
+    justify-content: center;
+}
+
+.post__area{
+    display: flex;
+    justify-content: center;
+}
+.post__container {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    border-color: rgb(211, 211, 211);
+    border-style: solid;
+    border-radius: 5px;
+    width:300px;
+    padding:10px;
+}
+
+.header__area {
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.header__area__left{
+    display:flex;
+    align-items: center;
+    font-family: Pretendard-Regular;
+    font-weight: 800;
+}
+
+.header__area__left >div{
+    margin-right: 5px;
+}
+
+.profile__img > img {
+    width: 2.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit:cover; /*최대한 원본 사이즈(비율) 유지*/
+    border:1px solid gray;
+    padding: 3px;
+}
+
+.post__img {
+    display: flex;
+    justify-content: center;
+}
+
+.post__bar__icons{
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    margin-top :5px;
+}
+
+.post__bar__left {
+    display: flex;
+}
+
+.post__bar__left >button{
+    border:0 solid black;
+    background-color: transparent;
+}
+
+.post__bar__left > div{
+    margin-right: 3px;
+}
+
+.post__bar__right >p{
+    margin:0;
+}
+
+.post__textarea {
+    display: flex;
+    margin : 5px 0;
+}
+
+.username{
+    font-family: Pretendard-Regular;
+    font-weight: 800;
+    font-size: smaller;
+    margin-right: 3px;
+}
+
+.post__content {
+    font-family: Pretendard-Regular;
+    font-weight: 400;
+    font-size: smaller;
+}
+
+.add__comment > input{
+    border:0 solid black;
+    padding:3px;
+}
+
+.add__comment > button {
+    border:0 solid black;
+    color:royalblue;
+    background-color: transparent;
+    font-family: Pretendard-Regular;
+    font-weight: 800;    
+}
+
+footer >div>span{
+    font-family: Pretendard-Regular;
+    font-weight: 400;
+    font-size: smaller;
+}
+
+footer>div>button{
+    font-family: Pretendard-Regular;
+    font-weight: 800;  
+    border:0 solid black;
+    color:grey;
+    background-color: transparent;
+}

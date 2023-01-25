@@ -1,0 +1,177 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>piro18-pirostagram</title>
+    <script src="https://kit.fontawesome.com/5658349e28.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <div class="new__post">
+            <form action="{% url 'post:post_new' %}">
+                <input class="new__post__input" type="submit" value="새 게시물">
+            </form>
+        </div>
+        <hr />
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="post__area">
+        <div class="post__container">
+            {% for post in posts %}
+                <div class="post-id-{{post.id}} container">
+                    <header>
+                        <div class="header__area">
+                            <div class="header__area__left">
+                                <div class="profile__img" >
+                                    <img src="{% static 'image/slamdunk.jpg' %}">
+                                </div>
+                                <div class="username">klmseo18</div>
+                            </div>
+                            <div class="header__area__right">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <hr />
+                    </header>
+    
+                    <body>
+                        <div class="post__img">
+                            <img src="{% static 'image/pirostagram.jpg' %}" style="width: 200px; height: 250px;">
+                        </div>
+                        
+                        <div class="post__bar">
+                            <div class="post__bar__icons">
+                                <div class="post__bar__left">
+                                    <button class="post__like" onclick="onClickLike({{post.id}})" >
+                                        <i class="fa-regular fa-heart fa-lg"></i>
+                                    </button>
+                                    <div class="comment__icon"><i class="fa-regular fa-comment fa-lg"></i></div>
+                                    <div class="share__icon"><i class="fa-regular fa-paper-plane fa-lg"></i></div> 
+                                </div>
+                                <div class="post__bar__right">
+                                    <p class="bookmark__icon"><i class="fa-regular fa-bookmark"></i></p>
+                                </div>
+                            </div>
+                            <div class="post__textarea">
+                                <div class="username">klmseo18</div>
+                                <div class="post__content">{{ post.content }}</div>
+                            </div>
+                        </div>
+                    </body>
+                    <footer>
+                        <div class="comments-{{post.id}}">
+                            {% for comment in post.comment_set.all %}
+                                <span class="comment-{{comment.id}} block">{{ comment.comment }}</span>
+                                <button class="delete__comment-{{comment.id}}" type="submit" onclick="onClickDelete({{comment.id}},{{post.id}})">삭제</button>
+                                <br />
+                            {% endfor %}
+                          </div>
+                          <div class = "add__comment">
+                            <input id="comment-{{post.id}}" type="text" name="content" placeholder="댓글 달기..." />
+                            <button class="add-comment" type="submit" onclick="onClickComment({{post.id}})">게시</button>
+                          </div>
+                          <hr />
+                    </footer>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <script>
+        // 좋아요
+        const requestLike = new XMLHttpRequest();
+
+        const onClickLike = (id) =>{
+            const url="/like_ajax/";
+            requestLike.open("POST",url,true);
+            requestLike.setRequestHeader(
+                "Content-Type",
+                "application/x-www-form-urlencoded"
+            );
+            requestLike.send(JSON.stringify({ id:id }));
+        };
+
+        requestLike.onreadystatechange=()=>{
+            if(requestLike.readyState === XMLHttpRequest.DONE){
+                if (requestLike.status < 400){
+                    const { id, status } = JSON.parse(requestLike.response);
+                    const element = document.querySelector(`.post-id-${id} .post__like`);
+                    if (status == false){
+                        element.innerHTML='<i class="fa-solid fa-heart"></i>';
+                    }
+                    else{
+                        element.innerHTML='<i class="fa-regular fa-heart fa-lg"></i>';
+                    }
+                }
+            }
+        };
+
+        // 댓글 작성
+        const requestComment = new XMLHttpRequest();
+
+        const onClickComment = (id) => {
+        const comment = document.getElementById(`comment-${id}`).value;
+        const url = "/comment_ajax/";
+        requestComment.open("POST", url, true);
+        requestComment.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        requestComment.send(JSON.stringify({ id: id, comment:comment }));
+        };
+
+        const commentHandleResponse = () => {
+
+        };
+        requestComment.onreadystatechange = () => {
+            if (requestComment.readyState === XMLHttpRequest.DONE) {
+                if (requestComment.status < 400) {
+                    const { id,comment, comment_id } = JSON.parse(requestComment.response);
+                    const comments = document.querySelector(
+                    `.post-id-${id} .comments-${id}`
+                    );
+                    const makecomment = document.querySelector(
+                    `.post-id-${id} #comment-${id}`
+                    );
+                    const newcomment = comment;
+                    comments.innerHTML += `<span class = 'comment-${comment_id} block'}>piro_18: ${newcomment}</span>`;
+                    comments.innerHTML += `<button class = 'delete__comment-${comment_id}' type = 'submit'  onclick='onClickDelete(${comment_id},${id})'>삭제</button>`;
+                    comments.innerHTML += "<br/>";
+                    makecomment.value = "";
+                }
+            }
+        };
+
+        const requestDelete = new XMLHttpRequest();
+
+        const onClickDelete = (id, post_id) => {
+            const url = "/delete_comment_ajax/";
+            requestDelete.open("POST", url, true);
+            requestDelete.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+            );
+            requestDelete.send(JSON.stringify({ id: id, post_id: post_id }));
+        };
+
+        requestDelete.onreadystatechange = () => {
+            if (requestDelete.readyState === XMLHttpRequest.DONE) {
+                if (requestDelete.status < 400) {
+                    const { id, post_id } = JSON.parse(requestDelete.response);
+                    const parent = document.querySelector(`.comments-${post_id}`);
+                    const comment = document.querySelector(`.comment-${id}`);
+                    const deletebutton = document.querySelector(`.delete__comment-${id}`);
+                    parent.removeChild(comment);
+                    parent.removeChild(deletebutton);
+                }
+            }
+        };
+    </script>
+</body>
+

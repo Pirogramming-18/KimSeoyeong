@@ -1,0 +1,13 @@
+{% extends 'posts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+	<div>
+		<form action="" method="post">
+			{% csrf_token %}
+			<div>{{form.as_p}}</div>
+			<input type="submit" value="업로드" />
+		</form>
+	</div>
+{% endblock %}
